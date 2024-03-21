@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter , Kadwa ,Grenze } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+const kadwa = Kadwa({
+  variable:'--font-kadwa',
+  weight:['400','700'],
+  display:'auto',
+  subsets:['devanagari','latin']
+});
+
+const grenze = Grenze({
+  weight:['500','400','600','700','400'],
+  display:"auto",
+  subsets:['vietnamese','latin-ext'],
+  style:'normal',
+  variable:'--font-grenze'
+  
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${kadwa.variable} ${grenze.variable}` }>{children}</body>
     </html>
   );
 }
